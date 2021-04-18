@@ -9,8 +9,6 @@ import report.GetReportFactory;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.List;
 
@@ -190,7 +188,7 @@ public class AdministratorPage extends JFrame {
         }
     }
 
-    private void emptyTextFields(){
+    private void emptyTextFields() {
         passwordTextField.setText("");
         emailTextField.setText("");
         nameTextField.setText("");

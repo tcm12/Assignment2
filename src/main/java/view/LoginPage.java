@@ -4,8 +4,6 @@ import controller.GuiController;
 import controller.LoginController;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class LoginPage extends JFrame {
     private JPanel loginPagePanel;
@@ -33,11 +31,11 @@ public class LoginPage extends JFrame {
         activateActionListeners();
     }
 
-    private void login(){
+    private void login() {
         String inputMail = eMailTextField.getText();
         String inputPassword = new String(passwordTextField.getPassword());
 
-        switch (loginController.login(inputMail, inputPassword)){
+        switch (loginController.login(inputMail, inputPassword)) {
             case 0:
                 AdministratorPage administratorPage = new AdministratorPage();
                 guiController.setAdministratorPage(administratorPage);
@@ -58,7 +56,7 @@ public class LoginPage extends JFrame {
         }
     }
 
-    public void activateActionListeners(){
+    public void activateActionListeners() {
         button1.addActionListener(e -> login());
     }
 }

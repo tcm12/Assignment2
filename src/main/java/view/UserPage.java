@@ -6,9 +6,6 @@ import model.Book;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.ArrayList;
 import java.util.List;
 
 public class UserPage extends JFrame {
@@ -51,8 +48,8 @@ public class UserPage extends JFrame {
         );
     }
 
-    private boolean failedToExecute(int errorCode){
-        switch (errorCode){
+    private boolean failedToExecute(int errorCode) {
+        switch (errorCode) {
             case 1:
                 showErrorMessage("Amount must be a positive number!");
                 return true;
@@ -67,7 +64,7 @@ public class UserPage extends JFrame {
         }
     }
 
-    private void emptyTextFields(){
+    private void emptyTextFields() {
         titleTextField.setText("");
         authorTextField.setText("");
         genreTextField.setText("");

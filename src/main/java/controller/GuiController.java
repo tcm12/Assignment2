@@ -10,7 +10,8 @@ public class GuiController {
     private UserPage userPage;
     private AdministratorPage administratorPage;
 
-    public GuiController() { }
+    public GuiController() {
+    }
 
     public void setLoginPage(LoginPage loginPage) {
         this.loginPage = loginPage;
@@ -39,14 +40,14 @@ public class GuiController {
         this.administratorPage.setVisible(true);
     }
 
-    public void closeAllPages(){
-        if (loginPage != null){
+    public void closeAllPages() {
+        if (loginPage != null) {
             this.loginPage.setVisible(false);
         }
-        if (userPage != null){
+        if (userPage != null) {
             this.userPage.setVisible(false);
         }
-        if (administratorPage != null){
+        if (administratorPage != null) {
             this.administratorPage.setVisible(false);
         }
     }

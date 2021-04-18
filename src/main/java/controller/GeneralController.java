@@ -19,43 +19,45 @@ public class GeneralController {
     private List<User> userList = new ArrayList<>();
     private List<Book> bookList = new ArrayList<>();
 
-    public GeneralController() { readData(); }
+    public GeneralController() {
+        readData();
+    }
 
-    private void readData(){
+    private void readData() {
 
         try {
-        File adminFile = new File("D:\\Faculta\\SD\\Assignment2\\src\\main\\administrator.xml");
-        File userFile = new File("D:\\Faculta\\SD\\Assignment2\\src\\main\\user.xml");
-        File bookFile = new File("D:\\Faculta\\SD\\Assignment2\\src\\main\\book.xml");
+            File adminFile = new File("D:\\Faculta\\SD\\Assignment2\\src\\main\\administrator.xml");
+            File userFile = new File("D:\\Faculta\\SD\\Assignment2\\src\\main\\user.xml");
+            File bookFile = new File("D:\\Faculta\\SD\\Assignment2\\src\\main\\book.xml");
 
-        FileInputStream adminInputStream = new FileInputStream(adminFile);
-        FileInputStream userInputStream = new FileInputStream(userFile);
-        FileInputStream bookInputStream = new FileInputStream(bookFile);
+            FileInputStream adminInputStream = new FileInputStream(adminFile);
+            FileInputStream userInputStream = new FileInputStream(userFile);
+            FileInputStream bookInputStream = new FileInputStream(bookFile);
 
-        XMLDecoder adminDecoder = new XMLDecoder(adminInputStream);
-        XMLDecoder userDecoder = new XMLDecoder(userInputStream);
-        XMLDecoder bookDecoder = new XMLDecoder(bookInputStream);
+            XMLDecoder adminDecoder = new XMLDecoder(adminInputStream);
+            XMLDecoder userDecoder = new XMLDecoder(userInputStream);
+            XMLDecoder bookDecoder = new XMLDecoder(bookInputStream);
 
 
-        adminList = (List<Administrator>) adminDecoder.readObject();
-        userList = (List<User>) userDecoder.readObject();
-        bookList = (List<Book>) bookDecoder.readObject();
+            adminList = (List<Administrator>) adminDecoder.readObject();
+            userList = (List<User>) userDecoder.readObject();
+            bookList = (List<Book>) bookDecoder.readObject();
 
-        adminDecoder.close();
-        adminInputStream.close();
+            adminDecoder.close();
+            adminInputStream.close();
 
-        userDecoder.close();
-        userInputStream.close();
+            userDecoder.close();
+            userInputStream.close();
 
-        bookDecoder.close();
-        bookInputStream.close();
+            bookDecoder.close();
+            bookInputStream.close();
 
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public void writeData(){
+    public void writeData() {
         try {
             File adminFile = new File("D:\\Faculta\\SD\\Assignment2\\src\\main\\administrator.xml");
             File userFile = new File("D:\\Faculta\\SD\\Assignment2\\src\\main\\user.xml");
@@ -87,7 +89,9 @@ public class GeneralController {
         }
     }
 
-    public List<Administrator> getAdminList() { return adminList; }
+    public List<Administrator> getAdminList() {
+        return adminList;
+    }
 
     public List<User> getUserList() {
         return userList;

@@ -31,11 +31,11 @@ public class UserController extends GeneralController {
         return 3;
     }
 
-    public List<Book> filteredList(String title, String author, String genre){
+    public List<Book> filteredList(String title, String author, String genre) {
         List<Book> bookList = getBookList();
         List<Book> filteredBookList = new ArrayList<>();
 
-        for (Book tempBook : bookList){
+        for (Book tempBook : bookList) {
             String tempTitle = tempBook.getTitle().toLowerCase();
             String tempAuthor = tempBook.getAuthor().toLowerCase();
             String tempGenre = tempBook.getGenre().toLowerCase();
@@ -44,7 +44,7 @@ public class UserController extends GeneralController {
             author = author.toLowerCase();
             genre = genre.toLowerCase();
 
-            if (tempTitle.contains(title) && tempAuthor.contains(author) && tempGenre.contains(genre)){
+            if (tempTitle.contains(title) && tempAuthor.contains(author) && tempGenre.contains(genre)) {
                 filteredBookList.add(tempBook);
             }
         }

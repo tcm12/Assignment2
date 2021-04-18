@@ -3,7 +3,6 @@ package controller;
 import model.Book;
 import model.User;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -158,7 +157,7 @@ public class AdminController extends GeneralController {
             }
 
             id = max + 1;
-        }else {
+        } else {
             id = 1;
         }
 
@@ -171,12 +170,12 @@ public class AdminController extends GeneralController {
         return 0;
     }
 
-    public int deleteBook(int id){
+    public int deleteBook(int id) {
 
         List<Book> bookList = getBookList();
 
-        for (Book tempBook : bookList){
-            if (tempBook.getId() == id){
+        for (Book tempBook : bookList) {
+            if (tempBook.getId() == id) {
                 bookList.remove(tempBook);
                 setBookList(bookList);
                 return 0;
@@ -186,7 +185,7 @@ public class AdminController extends GeneralController {
         return 12;
     }
 
-    public int updateBook(int id, String title, String author, String genre, String quantity, String price){
+    public int updateBook(int id, String title, String author, String genre, String quantity, String price) {
         int parsedQuantity = 0;
         int parsedPrice = 0;
 
@@ -197,7 +196,7 @@ public class AdminController extends GeneralController {
             return 7;
         }
 
-        if (!quantity.isEmpty()){
+        if (!quantity.isEmpty()) {
             try {
                 parsedQuantity = Integer.parseInt(quantity);
             } catch (NumberFormatException e1) {
@@ -208,7 +207,7 @@ public class AdminController extends GeneralController {
             }
         }
 
-        if (!price.isEmpty()){
+        if (!price.isEmpty()) {
             try {
                 parsedPrice = Integer.parseInt(price);
             } catch (NumberFormatException e1) {
@@ -221,23 +220,23 @@ public class AdminController extends GeneralController {
 
         List<Book> bookList = getBookList();
 
-        for (Book tempBook : bookList){
-            if (tempBook.getId() == id){
+        for (Book tempBook : bookList) {
+            if (tempBook.getId() == id) {
                 bookList.remove(tempBook);
 
-                if(!title.isEmpty()){
+                if (!title.isEmpty()) {
                     tempBook.setTitle(title);
                 }
-                if(!author.isEmpty()){
+                if (!author.isEmpty()) {
                     tempBook.setAuthor(author);
                 }
-                if(!genre.isEmpty()){
+                if (!genre.isEmpty()) {
                     tempBook.setGenre(genre);
                 }
-                if(!quantity.isEmpty()){
+                if (!quantity.isEmpty()) {
                     tempBook.setQuantity(parsedQuantity);
                 }
-                if (!price.isEmpty()){
+                if (!price.isEmpty()) {
                     tempBook.setPrice(parsedPrice);
                 }
                 bookList.add(tempBook);
