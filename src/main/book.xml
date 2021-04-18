@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="15" class="java.beans.XMLDecoder">
+ <object class="java.util.ArrayList">
+  <void method="add">
+   <object class="model.Book">
+    <void property="author">
+     <string>GEORGE ORWELL</string>
+    </void>
+    <void property="genre">
+     <string>DYSTOPIAN SF FUTURE</string>
+    </void>
+    <void property="id">
+     <int>3</int>
+    </void>
+    <void property="price">
+     <float>50.0</float>
+    </void>
+    <void property="quantity">
+     <int>20</int>
+    </void>
+    <void property="title">
+     <string>1984</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="model.Book">
+    <void property="author">
+     <string>J R R TOLKIEN</string>
+    </void>
+    <void property="genre">
+     <string>MYTHOPOELA FANTASY</string>
+    </void>
+    <void property="id">
+     <int>4</int>
+    </void>
+    <void property="price">
+     <float>30.0</float>
+    </void>
+    <void property="quantity">
+     <int>15</int>
+    </void>
+    <void property="title">
+     <string>THE SILMARILLION</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="model.Book">
+    <void property="author">
+     <string>FRANK HERBERT</string>
+    </void>
+    <void property="genre">
+     <string>SCIENCE FICTION</string>
+    </void>
+    <void property="id">
+     <int>1</int>
+    </void>
+    <void property="price">
+     <float>68.0</float>
+    </void>
+    <void property="quantity">
+     <int>49</int>
+    </void>
+    <void property="title">
+     <string>DUNE</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="model.Book">
+    <void property="author">
+     <string>J K ROWLING</string>
+    </void>
+    <void property="genre">
+     <string>SCIENCE FICTION</string>
+    </void>
+    <void property="id">
+     <int>2</int>
+    </void>
+    <void property="price">
+     <float>80.0</float>
+    </void>
+    <void property="quantity">
+     <int>85</int>
+    </void>
+    <void property="title">
+     <string>HARRY POTTER AND THE SORCERERS STONE</string>
+    </void>
+   </object>
+  </void>
+ </object>
+</java>

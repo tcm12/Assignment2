@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="15" class="java.beans.XMLDecoder">
+ <object class="java.util.ArrayList">
+  <void method="add">
+   <object class="model.Administrator">
+    <void property="password">
+     <string>0</string>
+    </void>
+    <void property="username">
+     <string>tcm12</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="model.Administrator">
+    <void property="password">
+     <string>t</string>
+    </void>
+    <void property="username">
+     <string>t</string>
+    </void>
+   </object>
+  </void>
+ </object>
+</java>
