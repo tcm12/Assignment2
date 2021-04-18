@@ -4,20 +4,10 @@
   <void method="add">
    <object class="model.Administrator">
     <void property="password">
-     <string>0</string>
+     <string>admin</string>
     </void>
     <void property="username">
-     <string>tcm12</string>
-    </void>
-   </object>
-  </void>
-  <void method="add">
-   <object class="model.Administrator">
-    <void property="password">
-     <string>t</string>
-    </void>
-    <void property="username">
-     <string>t</string>
+     <string>admin</string>
     </void>
    </object>
   </void>

@@ -199,146 +199,152 @@ public class AdministratorPage extends JFrame {
         priceTextField.setText("");
     }
 
+    private void logOut(){
+        guiController.closeAllPages();
+        LoginPage loginPage = new LoginPage();
+    }
+
+    private void addUser(){
+        String password = new String(passwordTextField.getPassword());
+        String newMail = emailTextField.getText();
+        String newName = nameTextField.getText().replaceAll("\\s+", " ");
+
+        if (failedToExecute(adminController.addUser(newMail.toLowerCase(), password, newName.toUpperCase()))) {
+            return;
+        }
+
+        emptyTextFields();
+        updateUserData();
+    }
+
+    private void deleteUser(){
+        String email = getUserMail();
+
+        if (email.isEmpty()) {
+            return;
+        }
+
+        if (failedToExecute(adminController.deleteUser(email))) {
+            return;
+        }
+
+        updateUserData();
+    }
+
+    private void updateUser(){
+        String email = getUserMail();
+        String newMail = emailTextField.getText();
+        String newName = nameTextField.getText().replaceAll("\\s+", " ");
+        String newPassword = new String(passwordTextField.getPassword());
+
+        if (email.isEmpty()) {
+            return;
+        }
+
+        if (failedToExecute(adminController.updateUser(email, newMail.toLowerCase(), newPassword, newName.toUpperCase()))) {
+            return;
+        }
+
+        emptyTextFields();
+        updateUserData();
+    }
+
+    private void addBook(){
+        String title = titleTextField.getText().toUpperCase();
+        String author = authorTextField.getText().toUpperCase();
+        String genre = genreTextField.getText().toUpperCase();
+        String quantity = quantityTextField.getText();
+        String price = priceTextField.getText();
+
+        if (failedToExecute(adminController.addBook(title, author,
+                genre, quantity, price))) {
+            return;
+        }
+
+        emptyTextFields();
+        updateBookData();
+    }
+
+    private void deleteBook(){
+        int bookId = getBookId();
+
+        if (bookId == -1) {
+            return;
+        }
+
+        if (failedToExecute(adminController.deleteBook(bookId))) {
+            return;
+        }
+
+        updateBookData();
+    }
+
+    private void updateBook(){
+        int bookId = getBookId();
+
+        if (bookId == -1) {
+            return;
+        }
+
+        String title = titleTextField.getText().toUpperCase();
+        String author = authorTextField.getText().toUpperCase();
+        String genre = genreTextField.getText().toUpperCase();
+        String quantity = quantityTextField.getText();
+        String price = priceTextField.getText();
+
+        if (failedToExecute(adminController.updateBook(bookId, title, author, genre, quantity, price))) {
+            return;
+        }
+
+        emptyTextFields();
+        updateBookData();
+    }
+
+    private void createPdfReport(){
+        try {
+            getReportFactory.getReport("PDF").generateReport();
+        } catch (IOException | DocumentException ioException) {
+            ioException.printStackTrace();
+        }
+        JOptionPane.showMessageDialog(
+                null,
+                "PDF was created",
+                "Success",
+                JOptionPane.INFORMATION_MESSAGE
+        );
+    }
+
+    private void createCsvReport(){
+        try {
+            getReportFactory.getReport("CSV").generateReport();
+        } catch (IOException | DocumentException ioException) {
+            ioException.printStackTrace();
+        }
+        JOptionPane.showMessageDialog(
+                null,
+                "CSV was created",
+                "Success",
+                JOptionPane.INFORMATION_MESSAGE
+        );
+    }
+
     public void activateActionListeners() {
-        logOutButton.addActionListener(e -> {
-            guiController.closeAllPages();
-            LoginPage loginPage = new LoginPage();
-        });
+        logOutButton.addActionListener(e -> { logOut(); });
 
-        addButton.addActionListener(e -> {
-            String password = new String(passwordTextField.getPassword());
-            String newMail = emailTextField.getText();
-            String newName = nameTextField.getText().replaceAll("\\s+", " ");
+        addButton.addActionListener(e -> { addUser(); });
 
-            if (failedToExecute(adminController.addUser(newMail.toLowerCase(), password, newName.toUpperCase()))) {
-                return;
-            }
+        deleteButton.addActionListener(e -> { deleteUser(); });
 
-            emptyTextFields();
+        updateButton.addActionListener(e -> { updateUser(); });
 
-            adminController.writeData();
-            updateUserData();
-        });
+        addBookButton.addActionListener(e -> { addBook(); });
 
-        deleteButton.addActionListener(e -> {
-            String email = getUserMail();
+        deleteBookButton.addActionListener(e -> { deleteBook(); });
 
-            if (email.isEmpty()) {
-                return;
-            }
+        updateBookButton.addActionListener(e -> { updateBook(); });
 
-            if (failedToExecute(adminController.deleteUser(email))) {
-                return;
-            }
+        PDFOutOfStockButton.addActionListener(e -> { createPdfReport(); });
 
-            adminController.writeData();
-            updateUserData();
-        });
-
-        updateButton.addActionListener(e -> {
-            String email = getUserMail();
-            String newMail = emailTextField.getText();
-            String newName = nameTextField.getText().replaceAll("\\s+", " ");
-            String newPassword = new String(passwordTextField.getPassword());
-
-            if (email.isEmpty()) {
-                return;
-            }
-
-            if (failedToExecute(adminController.updateUser(email, newMail.toLowerCase(), newPassword, newName.toUpperCase()))) {
-                return;
-            }
-
-            emptyTextFields();
-
-            adminController.writeData();
-            updateUserData();
-        });
-
-        addBookButton.addActionListener(e -> {
-            String title = titleTextField.getText().toUpperCase();
-            String author = authorTextField.getText().toUpperCase();
-            String genre = genreTextField.getText().toUpperCase();
-            int quantity;
-            int price;
-
-            try {
-                quantity = Integer.parseInt(quantityTextField.getText());
-                price = Integer.parseInt(priceTextField.getText());
-            } catch (NumberFormatException e1) {
-                showErrorMessage("Not a number!");
-                return;
-            }
-
-            if (failedToExecute(adminController.addBook(title, author,
-                    genre, quantity, price))) {
-                return;
-            }
-
-            emptyTextFields();
-
-            adminController.writeData();
-            updateBookData();
-        });
-
-        deleteBookButton.addActionListener(e -> {
-            int bookId = getBookId();
-
-            if (bookId == -1) {
-                return;
-            }
-
-            if (failedToExecute(adminController.deleteBook(bookId))) {
-                return;
-            }
-
-            adminController.writeData();
-            updateBookData();
-        });
-
-        updateBookButton.addActionListener(e -> {
-            int bookId = getBookId();
-
-            if (bookId == -1) {
-                return;
-            }
-
-            String title = titleTextField.getText().toUpperCase();
-            String author = authorTextField.getText().toUpperCase();
-            String genre = genreTextField.getText().toUpperCase();
-            String quantity = quantityTextField.getText();
-            String price = priceTextField.getText();
-
-            if (failedToExecute(adminController.updateBook(bookId, title, author, genre, quantity, price))) {
-                return;
-            }
-
-            emptyTextFields();
-
-            adminController.writeData();
-            updateBookData();
-        });
-
-        PDFOutOfStockButton.addActionListener(e -> {
-            try {
-                getReportFactory.getReport("PDF").generateReport();
-            } catch (IOException | DocumentException ioException) {
-                ioException.printStackTrace();
-            }
-            JOptionPane.showMessageDialog(
-                    null,
-                    "PDF was created",
-                    "Success",
-                    JOptionPane.INFORMATION_MESSAGE
-            );
-        });
-
-        CSVOutOfStockButton.addActionListener(e -> {
-            try {
-                getReportFactory.getReport("CSV").generateReport();
-            } catch (IOException | DocumentException ioException) {
-                ioException.printStackTrace();
-            }
-        });
+        CSVOutOfStockButton.addActionListener(e -> { createCsvReport(); });
     }
 }

@@ -7,7 +7,20 @@ import java.util.List;
 
 public class UserController extends GeneralController {
 
-    public int sellBook(int id, int amount) {
+    public int sellBook(int id, String sAmount) {
+        int amount;
+
+        if (sAmount.isEmpty()) {
+            amount = 1;
+        } else {
+
+            try {
+                amount = Integer.parseInt(sAmount);
+            } catch (NumberFormatException e1) {
+                return 4;
+            }
+        }
+
         List<Book> bookList = getBookList();
 
         if (amount < 1) {
@@ -24,6 +37,7 @@ public class UserController extends GeneralController {
                 tempBook.setQuantity(tempBook.getQuantity() - amount);
                 bookList.add(tempBook);
                 setBookList(bookList);
+                writeData();
                 return 0;
             }
         }

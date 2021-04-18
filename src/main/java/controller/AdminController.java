@@ -59,6 +59,7 @@ public class AdminController extends GeneralController {
 
         userList.add(user);
         setUserList(userList);
+        writeData();
 
         return 0;
     }
@@ -96,6 +97,7 @@ public class AdminController extends GeneralController {
 
                 userList.add(tempUser);
                 setUserList(userList);
+                writeData();
                 return 0;
             }
         }
@@ -115,6 +117,7 @@ public class AdminController extends GeneralController {
             if (tempUser.getMail().equals(mail)) {
                 userList.remove(tempUser);
                 setUserList(userList);
+                writeData();
                 return 0;
             }
         }
@@ -122,8 +125,21 @@ public class AdminController extends GeneralController {
         return 3;
     }
 
-    public int addBook(String title, String author, String genre, int quantity, int price) {
+    public int addBook(String title, String author, String genre, String sQuantity, String sPrice) {
         int id;
+        int quantity;
+        float price;
+
+        try {
+            quantity = Integer.parseInt(sQuantity);
+        } catch (NumberFormatException e1) {
+            return 13;
+        }
+        try {
+            price = Float.parseFloat(sPrice);
+        } catch (NumberFormatException e1) {
+            return 14;
+        }
 
         if (title.isEmpty()) {
             return 5;
@@ -164,8 +180,8 @@ public class AdminController extends GeneralController {
         Book book = new Book(id, title, author, genre, quantity, price);
 
         bookList.add(book);
-
         setBookList(bookList);
+        writeData();
 
         return 0;
     }
@@ -178,6 +194,7 @@ public class AdminController extends GeneralController {
             if (tempBook.getId() == id) {
                 bookList.remove(tempBook);
                 setBookList(bookList);
+                writeData();
                 return 0;
             }
         }
@@ -187,7 +204,7 @@ public class AdminController extends GeneralController {
 
     public int updateBook(int id, String title, String author, String genre, String quantity, String price) {
         int parsedQuantity = 0;
-        int parsedPrice = 0;
+        float parsedPrice = 0.0f;
 
         if (incorrectInput(author, 2) && !author.isEmpty()) {
             return 6;
@@ -209,7 +226,7 @@ public class AdminController extends GeneralController {
 
         if (!price.isEmpty()) {
             try {
-                parsedPrice = Integer.parseInt(price);
+                parsedPrice = Float.parseFloat(price);
             } catch (NumberFormatException e1) {
                 return 14;
             }
@@ -241,6 +258,7 @@ public class AdminController extends GeneralController {
                 }
                 bookList.add(tempBook);
                 setBookList(bookList);
+                writeData();
                 return 0;
             }
 

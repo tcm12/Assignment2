@@ -26,9 +26,9 @@ public class GeneralController {
     private void readData() {
 
         try {
-            File adminFile = new File("D:\\Faculta\\SD\\Assignment2\\src\\main\\administrator.xml");
-            File userFile = new File("D:\\Faculta\\SD\\Assignment2\\src\\main\\user.xml");
-            File bookFile = new File("D:\\Faculta\\SD\\Assignment2\\src\\main\\book.xml");
+            File adminFile = new File("src\\main\\administrator.xml");
+            File userFile = new File("src\\main\\user.xml");
+            File bookFile = new File("src\\main\\book.xml");
 
             FileInputStream adminInputStream = new FileInputStream(adminFile);
             FileInputStream userInputStream = new FileInputStream(userFile);
@@ -59,9 +59,9 @@ public class GeneralController {
 
     public void writeData() {
         try {
-            File adminFile = new File("D:\\Faculta\\SD\\Assignment2\\src\\main\\administrator.xml");
-            File userFile = new File("D:\\Faculta\\SD\\Assignment2\\src\\main\\user.xml");
-            File bookFile = new File("D:\\Faculta\\SD\\Assignment2\\src\\main\\book.xml");
+            File adminFile = new File("src\\main\\administrator.xml");
+            File userFile = new File("src\\main\\user.xml");
+            File bookFile = new File("src\\main\\book.xml");
 
             FileOutputStream adminOutputStream = new FileOutputStream(adminFile);
             FileOutputStream userOutputStream = new FileOutputStream(userFile);

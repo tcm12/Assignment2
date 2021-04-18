@@ -33,7 +33,7 @@
      <string>miuriel@mail.com</string>
     </void>
     <void property="name">
-     <string>MOO</string>
+     <string>MIURIEL</string>
     </void>
     <void property="password">
      <string>curaj</string>
@@ -43,13 +43,13 @@
   <void method="add">
    <object class="model.User">
     <void property="mail">
-     <string>anto@mail.com</string>
+     <string>test@mail.com</string>
     </void>
     <void property="name">
-     <string>MARA</string>
+     <string>TEST</string>
     </void>
     <void property="password">
-     <string>1234</string>
+     <string>test</string>
     </void>
    </object>
   </void>
