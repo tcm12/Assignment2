@@ -1,12 +1,17 @@
 package view;
 
+import com.itextpdf.text.DocumentException;
 import controller.AdminController;
 import controller.GuiController;
 import model.Book;
 import model.User;
+import report.GetReportFactory;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.util.List;
 
 public class AdministratorPage extends JFrame {
@@ -31,9 +36,13 @@ public class AdministratorPage extends JFrame {
     private JTextField nameTextField;
     private JButton logOutButton;
     private JPasswordField passwordTextField;
+    private JButton CSVOutOfStockButton;
+    private JButton PDFOutOfStockButton;
 
     private final GuiController guiController;
     private final AdminController adminController;
+
+    private final GetReportFactory getReportFactory = new GetReportFactory();
 
     public AdministratorPage() {
         super("Admin Page");
@@ -310,6 +319,22 @@ public class AdministratorPage extends JFrame {
 
             adminController.writeData();
             updateBookData();
+        });
+
+        PDFOutOfStockButton.addActionListener(e -> {
+            try {
+                getReportFactory.getReport("PDF").generateReport();
+            } catch (IOException | DocumentException ioException) {
+                ioException.printStackTrace();
+            }
+        });
+
+        CSVOutOfStockButton.addActionListener(e -> {
+            try {
+                getReportFactory.getReport("CSV").generateReport();
+            } catch (IOException | DocumentException ioException) {
+                ioException.printStackTrace();
+            }
         });
     }
 }

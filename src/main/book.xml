@@ -26,22 +26,22 @@
   <void method="add">
    <object class="model.Book">
     <void property="author">
-     <string>J R R TOLKIEN</string>
+     <string>J K ROWLING</string>
     </void>
     <void property="genre">
-     <string>MYTHOPOELA FANTASY</string>
+     <string>SCIENCE FICTION</string>
     </void>
     <void property="id">
-     <int>4</int>
+     <int>2</int>
     </void>
     <void property="price">
-     <float>30.0</float>
+     <float>80.0</float>
     </void>
     <void property="quantity">
-     <int>15</int>
+     <int>85</int>
     </void>
     <void property="title">
-     <string>THE SILMARILLION</string>
+     <string>HARRY POTTER AND THE SORCERERS STONE</string>
     </void>
    </object>
   </void>
@@ -59,9 +59,6 @@
     <void property="price">
      <float>68.0</float>
     </void>
-    <void property="quantity">
-     <int>49</int>
-    </void>
     <void property="title">
      <string>DUNE</string>
     </void>
@@ -70,22 +67,41 @@
   <void method="add">
    <object class="model.Book">
     <void property="author">
-     <string>J K ROWLING</string>
+     <string>J R R TOLKIEN</string>
     </void>
     <void property="genre">
-     <string>SCIENCE FICTION</string>
+     <string>MYTHOPOEIA FANTASY</string>
     </void>
     <void property="id">
-     <int>2</int>
+     <int>4</int>
     </void>
     <void property="price">
-     <float>80.0</float>
-    </void>
-    <void property="quantity">
-     <int>85</int>
+     <float>30.0</float>
     </void>
     <void property="title">
-     <string>HARRY POTTER AND THE SORCERERS STONE</string>
+     <string>THE SILMARILLION</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="model.Book">
+    <void property="author">
+     <string>JOHN DOE</string>
+    </void>
+    <void property="genre">
+     <string>TEST</string>
+    </void>
+    <void property="id">
+     <int>5</int>
+    </void>
+    <void property="price">
+     <float>10.0</float>
+    </void>
+    <void property="quantity">
+     <int>15</int>
+    </void>
+    <void property="title">
+     <string>TEST BOOK</string>
     </void>
    </object>
   </void>
