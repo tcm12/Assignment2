@@ -325,6 +325,12 @@ public class AdministratorPage extends JFrame {
             } catch (IOException | DocumentException ioException) {
                 ioException.printStackTrace();
             }
+            JOptionPane.showMessageDialog(
+                    null,
+                    "PDF was created",
+                    "Success",
+                    JOptionPane.INFORMATION_MESSAGE
+            );
         });
 
         CSVOutOfStockButton.addActionListener(e -> {

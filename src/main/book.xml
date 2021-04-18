@@ -48,25 +48,6 @@
   <void method="add">
    <object class="model.Book">
     <void property="author">
-     <string>FRANK HERBERT</string>
-    </void>
-    <void property="genre">
-     <string>SCIENCE FICTION</string>
-    </void>
-    <void property="id">
-     <int>1</int>
-    </void>
-    <void property="price">
-     <float>68.0</float>
-    </void>
-    <void property="title">
-     <string>DUNE</string>
-    </void>
-   </object>
-  </void>
-  <void method="add">
-   <object class="model.Book">
-    <void property="author">
      <string>J R R TOLKIEN</string>
     </void>
     <void property="genre">
@@ -98,10 +79,54 @@
      <float>10.0</float>
     </void>
     <void property="quantity">
-     <int>15</int>
+     <int>12</int>
     </void>
     <void property="title">
      <string>TEST BOOK</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="model.Book">
+    <void property="author">
+     <string>BA</string>
+    </void>
+    <void property="genre">
+     <string>CA</string>
+    </void>
+    <void property="id">
+     <int>6</int>
+    </void>
+    <void property="price">
+     <float>12.0</float>
+    </void>
+    <void property="quantity">
+     <int>1</int>
+    </void>
+    <void property="title">
+     <string>ABC12</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="model.Book">
+    <void property="author">
+     <string>SDFS</string>
+    </void>
+    <void property="genre">
+     <string>SDF</string>
+    </void>
+    <void property="id">
+     <int>7</int>
+    </void>
+    <void property="price">
+     <float>2.0</float>
+    </void>
+    <void property="quantity">
+     <int>2</int>
+    </void>
+    <void property="title">
+     <string>DSF</string>
     </void>
    </object>
   </void>
